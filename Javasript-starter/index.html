@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="style/global-style.css">
     <link rel="stylesheet" href="style/layout.css">
 </head>
+
 <body>
     <script>
         let product1 = "Бумага офисная А4, 80 г/м2, 500 л";
@@ -19,9 +21,9 @@
         let productPrice2 = 56;
         let productPrice3 = 12.50;
 
-        let productQuantity1 = +prompt(`Укажите количество продуктов '${product1}', цена ${productPrice1} за штуку`);
-        let productQuantity2 = +prompt(`Укажите количество продуктов '${product2}', цена ${productPrice2} за штуку`);
-        let productQuantity3 = +prompt(`Укажите количество продуктов '${product3}', цена ${productPrice3} за штуку`);
+        let productQuantity1 = +prompt(`Укажите количество продуктов '${product1}', цена ${productPrice1}`, 0);
+        let productQuantity2 = +prompt(`Укажите количество продуктов '${product2}', цена ${productPrice2}`, 0);
+        let productQuantity3 = +prompt(`Укажите количество продуктов '${product3}', цена ${productPrice3}`, 0);
 
         let totalPrice = 0;
 
@@ -29,7 +31,12 @@
         totalPrice += productPrice2 * productQuantity2;
         totalPrice += productPrice3 * productQuantity3;
 
-        alert(`Общая сумма ${totalPrice}`);
+        let freeShipping = totalPrice > 1000; // бесплатная доставка при заказе от 1000
+        alert(`Общая сумма ${totalPrice}.`);
+        if (freeShipping) {
+            alert(`Бесплатная доставка: ${freeShipping}.`);
+        }
     </script>
 </body>
+
 </html>
