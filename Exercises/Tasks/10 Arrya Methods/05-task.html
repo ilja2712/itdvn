@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <pre>
+        Задание:
+        Перепишите код так, чтобы значения для массива count задавались пользователем.
+        Посчитайте стоимость покупок. Выведите сколько было потрачено на каждый продукт по отдельности и сколько потрачено в общем.
+    </pre>
+    <script>
+        // названия товаров
+        let names = [];
+        names[0] = "Бумага офисная А4, 80 г/м2, 500 л";
+        names[1] = "Биндеры для бумаги 51 мм";
+        names[2] = "Ручка шариковая синяя";
+
+        // цены на товар
+        let prices = [];
+        prices[0] = 280.25; // Бумага офисная А4, 80 г/м2, 500 л
+        prices[1] = 56;     // Биндеры для бумаги 51 мм
+        prices[2] = 12.50;  // Ручка шариковая синяя
+
+        let count = [];
+        let sum = [];
+        let summ = 0;
+        for (let i = 0; i < names.length; i++) {
+            count[i] = prompt(`Количество товара ${names[1]}, цена за штуку ${prices[i]}.`, 0);
+            sum[i] = count[i]*prices[i];
+            summ += sum[i];
+        }
+
+        for (let i = 0; i < sum.length; i++) {
+            console.log(names[i] + ': ' + sum[i]);    
+        }
+        
+        console.log(`Общая сумма покупки: ${summ}`);
+
+    </script>
+</body>
+
+</html>

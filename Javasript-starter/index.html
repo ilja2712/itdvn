@@ -13,28 +13,35 @@
 
 <body>
     <script>
-        let product1 = "Бумага офисная А4, 80 г/м2, 500 л";
-        let product2 = "Биндеры для бумаги 51 мм";
-        let product3 = "Ручка шариковая синяя";
+        let names = [];
+        names[0] = "Бумага офисная А4, 80 г/м2, 500 л";
+        names[1] = "Биндеры для бумаги 51 мм";
+        names[2] = "Ручка шариковая синяя";
 
-        let productPrice1 = 280.25;
-        let productPrice2 = 56;
-        let productPrice3 = 12.50;
+        let prices = [];
+        prices[0] = 280.25;
+        prices[1] = 56;
+        prices[2] = 12.50;
 
-        let productQuantity1 = +prompt(`Укажите количество продуктов '${product1}', цена ${productPrice1}`, 0);
-        let productQuantity2 = +prompt(`Укажите количество продуктов '${product2}', цена ${productPrice2}`, 0);
-        let productQuantity3 = +prompt(`Укажите количество продуктов '${product3}', цена ${productPrice3}`, 0);
+        let products = [];
+
+        for (let index = 0; index < names.length; index++) {
+            const name = names[index];
+            const price = prices[index];
+
+            products[index] = +prompt(`Укажите количество продуктов '${name}', цена ${price}`, 0);
+        }
 
         let totalPrice = 0;
+        for (let index = 0; index < products.length; index++) {
+            totalPrice += prices[index] * products[index];
+        }
 
-        totalPrice += productPrice1 * productQuantity1;
-        totalPrice += productPrice2 * productQuantity2;
-        totalPrice += productPrice3 * productQuantity3;
+        alert(`Сумма Вашего заказа ${totalPrice}.`);
 
         let freeShipping = totalPrice > 1000; // бесплатная доставка при заказе от 1000
-        alert(`Общая сумма ${totalPrice}.`);
         if (freeShipping) {
-            alert(`Бесплатная доставка: ${freeShipping}.`);
+            alert(`Доставка будет бесплатной.`);
         }
     </script>
 </body>
