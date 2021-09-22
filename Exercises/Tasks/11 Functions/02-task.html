@@ -12,6 +12,17 @@
         Если параметр отсутствует - не используйте значение для расчета среднего арифметического значения.
     </pre>
     <script>
+
+        function getAverageValue(a, b, c) {
+            
+            if (a == undefined) console.log('Среднее арифметическое = ' + (b + c)/2);
+            if (b == undefined) console.log('Среднее арифметическое = ' + (a + c)/2);
+            if (c == undefined) console.log('Среднее арифметическое = ' + (a + b)/2);
+
+            if (a == undefined && b == undefined)
+        }
+
+        getAverageValue(1, 2, 4);
         
     </script>
 </body>
