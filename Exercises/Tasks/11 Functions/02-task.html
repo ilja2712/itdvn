@@ -13,17 +13,33 @@
     </pre>
     <script>
 
-        function getAverageValue(a, b, c) {
-            
-            if (a == undefined) console.log('Среднее арифметическое = ' + (b + c)/2);
-            if (b == undefined) console.log('Среднее арифметическое = ' + (a + c)/2);
-            if (c == undefined) console.log('Среднее арифметическое = ' + (a + b)/2);
+        function avg(a, b, c) {
 
-            if (a == undefined && b == undefined)
+            let sum = 0;
+            let count = 0;
+            
+            if (a) {
+                sum+=a;
+                count++;
+            };
+            if (b) {
+                sum+=b;
+                count++;
+            };
+            if (c) {
+                sum+=c;
+                count++;
+            };
+
+            return sum/count
         }
 
-        getAverageValue(1, 2, 4);
-        
+        let sum1 = avg(100, 20, 4);
+        let sum2 = avg(1, 2);
+
+        console.log(sum1);
+        console.log(sum2);
+
     </script>
 </body>
 </html>

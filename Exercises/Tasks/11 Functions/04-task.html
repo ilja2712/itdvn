@@ -17,8 +17,14 @@
         let throwCount = +prompt("Сколько раз вы хотите бросить шестигранный кубик");
 
         for (let i = 0; i < throwCount; i++) {
-            const result = random(1, 6);
+            const result = random(11, 20);
             console.log(result);
+        }
+
+        function random(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
     </script>

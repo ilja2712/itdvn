@@ -27,27 +27,34 @@
         prices[2] = 12.50;  // Ручка шариковая синяя
 
         let count = [];
-        for (let i = 0; i < names.length; i++) {
-            const productName = names[i];
-            let counttoBuy = +prompt("Укажите количество для " + productName);
+        function countProduct() {
+            for (let i = 0; i < names.length; i++) {
+                const productName = names[i];
+                let counttoBuy = +prompt("Укажите количество для " + productName);
 
-            if (isNaN(counttoBuy))
-                counttoBuy = 0;
+                if (isNaN(counttoBuy))
+                    counttoBuy = 0;
 
-            count.push(counttoBuy);
+                count.push(counttoBuy);
+            }
         }
 
         let totalSum = 0;
-        for (let i = 0; i < names.length; i++) {
-            const productName = names[i];
-            const productPrice = prices[i];
-            const boughtCount = count[i];
+        function sumProduct() {
+            for (let i = 0; i < names.length; i++) {
+                const productName = names[i];
+                const productPrice = prices[i];
+                const boughtCount = count[i];
 
-            let price = productPrice * boughtCount;
-            totalSum += price;
-            console.log(`Куплено ${productName} на сумму ${price}`);
+                let price = productPrice * boughtCount;
+                totalSum += price;
+                console.log(`Куплено ${productName} на сумму ${price}`);
+            }
+            console.log("Всего продуктов куплено на " + totalSum);
         }
-        console.log("Всего продуктов куплено на " + totalSum);
+
+        countProduct();
+        sumProduct();
     </script>
 </body>
 
