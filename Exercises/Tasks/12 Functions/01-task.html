@@ -23,11 +23,12 @@
         prices[1] = 56;     // Биндеры для бумаги 51 мм
         prices[2] = 12.50;  // Ручка шариковая синяя
 
+        let count = [];
+
         initCountArray();
         calculateSum();
 
         function initCountArray() {
-            let count = [];
             for (let i = 0; i < names.length; i++) {
                 const productName = names[i];
                 let counttoBuy = +prompt("Укажите количество для " + productName);
