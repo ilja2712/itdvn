@@ -13,6 +13,24 @@
         lastName и firstName полученного объекта на экран.
     </pre>
     <script>
+        let obj = {
+            lastName: "Last",
+            firstName: "First"
+        }
+
+        let obj2 = new Object();
+        obj2.lastName = "Last2";
+        obj2.firstName = "First2";
+
+        print(obj);
+        print(obj2);
+
+
+        function print(object)
+        {
+            console.log(object.lastName);
+            console.log(object.firstName);
+        }
         
     </script>
 </body>

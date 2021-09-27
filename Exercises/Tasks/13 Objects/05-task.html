@@ -454,6 +454,38 @@
                 favoriteFruit: 'apple'
             }
         ];
+        
+        function showAllEmails() {
+            for (let user of users) {
+                console.log(user.name.first + ' ' + user.name.last + ': ' + user.email);
+            }
+        }
+
+        function showHigestFriendCount() {
+        let max = Number.MIN_VALUE;
+            for (let user of users) {
+                if (max < user.friends.length) max = user.friends.length;
+            }
+            users.forEach(x => { if(x.friends.length === max) console.log(x.name.first + ' ' + x.name.last + ': ' + x.friends.length)});
+        }
+
+        function showMinMaxBalance() {
+            let maximum = Number.MIN_VALUE;
+            let minimum = Number.MAX_VALUE;
+            for (let user of users) {
+                if (maximum < user.balance) maximum = user.balance;
+                if (minimum > user.balance) minimum = user.balance;
+            }
+            users.forEach(x => { 
+                if(x.balance === maximum) console.log(x.company + ': ' + x.balance);
+                if(x.balance === minimum) console.log(x.company + ': ' + x.balance);
+            });
+        }
+
+        showAllEmails();
+        showHigestFriendCount();
+        showMinMaxBalance();
+
     </script>
 </body>
 
