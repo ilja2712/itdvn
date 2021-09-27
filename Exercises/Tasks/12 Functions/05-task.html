@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task X</title>
+</head>
+<body>
+    <pre>
+        Задание:
+        Запросите у пользователя число. Выведите все числа в обратном порядке от введенного пользователем значения до 1. Используйте для решения рекурсию.
+    </pre>
+    <script>
+
+        let value = prompt('Введите любое число от 2 до 20', 0);
+        
+        function recValue(value) {
+
+            console.log(value);
+            value--;
+            if (value > 0) {
+                recValue(value);
+            }
+        }
+
+        recValue(value);
+        
+    </script>
+</body>
+</html>

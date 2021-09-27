@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style/global-style.css">
+    <link rel="stylesheet" href="style/layout.css">
+</head>
+
+<body>
+    <script>
+        let names = [];
+        names[0] = "Бумага офисная А4, 80 г/м2, 500 л";
+        names[1] = "Биндеры для бумаги 51 мм";
+        names[2] = "Ручка шариковая синяя";
+
+        let prices = [];
+        prices[0] = 280.25;
+        prices[1] = 56;
+        prices[2] = 12.50;
+
+        let products = [];
+
+        for (let index = 0; index < names.length; index++) {
+            const name = names[index];
+            const price = prices[index];
+
+            products[index] = +prompt(`Укажите количество продуктов '${name}', цена ${price}`, 0);
+        }
+
+        let totalPrice = 0;
+        for (let index = 0; index < products.length; index++) {
+            totalPrice += prices[index] * products[index];
+        }
+
+        alert(`Сумма Вашего заказа ${totalPrice}.`);
+
+        let freeShipping = totalPrice > 1000; // бесплатная доставка при заказе от 1000
+        if (freeShipping) {
+            alert(`Доставка будет бесплатной.`);
+        }
+    </script>
+</body>
+
+</html>
