@@ -497,7 +497,20 @@
 
         function showMostFavoritedFruit()
         {
-            
+            console.log("Favorite fruit our users:");
+            let maxCount = {};
+            let maxValue = Number.MIN_VALUE;
+            for(let user of users) {
+                maxCount[user.favoriteFruit] = 0;
+                console.log(user.favoriteFruit + ': ' + typeof maxCount[user.favoriteFruit]);
+                maxCount[user.favoriteFruit]++;
+            };
+            console.log(maxCount);
+            for (let i = 0; i < maxCount.length; i++) {
+                if (maxValue < maxCount[i]) {
+                    maxValue = maxCount[i];
+                }
+            }
         }
 
         showAllEmails();

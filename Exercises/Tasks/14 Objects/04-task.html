@@ -13,23 +13,23 @@
         Используйте shorthand методы и shorthand свойства.        
     </pre>
     <script>
-        let obj1 = {
-            firstName: "Ivan",
-            lastName: "Ivanov"
-        };
+        function setObjectValue(firstName, lastName) {
+            return {
+                firstName,
+                lastName,
 
-        let obj2 = {
-            firstName: "Jhon",
-            lastName: "Doe"
-        };
-
-        function print(obj) {
-            console.log("First Name: " + obj.firstName);
-            console.log("Last Name: " + obj.lastName);
+                print() {
+                console.log("First Name: " + this.firstName);
+                console.log("Last Name: " + this.lastName);
+                }
+            };
         }
 
-        print(obj1);
-        print(obj2);
+        let obj1 = setObjectValue("John", "Santos");
+        let obj2 = setObjectValue("John", "Fedorischenko");
+
+        obj1.print();
+        obj2.print();
     </script>
 </body>
 </html>
