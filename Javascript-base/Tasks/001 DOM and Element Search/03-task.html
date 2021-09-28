@@ -43,6 +43,12 @@
     Найдите на странице все элементы li, которые находятся в ul с классом border 
     и добавьте для них сплошную красную рамку толщиной в 1px
     */
+
+   let ulElement = document.querySelector("ul.border");
+   let liElement = ulElement.querySelectorAll("li");
+   for (const li of liElement) {
+       li.style.border = "1px solid red";
+   }
 </script>
 
 </html>

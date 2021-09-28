@@ -29,11 +29,11 @@
         <li>Item 05</li>
     </ul>
     <ul class="border">
-        <li>Item 01</li>
+        <li class = "border">Item 01</li>
         <li>Item 02</li>
         <li>Item 03</li>
         <li>Item 04</li>
-        <li>Item 05</li>
+        <li class="border">Item 05</li>
     </ul>
 </body>
 
@@ -43,6 +43,11 @@
     Для первого и последнего элемента li для всех ul на данной странице
     добавьте сплошную красную рамку толщиной в 1px
     */
+
+    let liElement = document.querySelectorAll("li:first-child, li:last-child");
+    for (const li of liElement) {
+        li.style.border = "1px solid red";
+    }
 </script>
 
 </html>
