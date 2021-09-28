@@ -25,8 +25,8 @@
     <table id="statsTable">
         <tr>
             <th>Месяц</th>
-            <th>Отдел 1</th>
-            <th>Отдел 2</th>
+            <th id="group1">Отдел 1</th>
+            <th id="group2">Отдел 2</th>
         </tr>
         <tr>
             <td>Январь</td>
@@ -36,7 +36,7 @@
         <tr>
             <td>Февраль</td>
             <td>60</td>
-            <td>140</td>
+            <td>100</td>
         </tr>
         <tr>
             <td>Март</td>
@@ -51,7 +51,7 @@
         <tr>
             <td>Март</td>
             <td>95</td>
-            <td>80</td>
+            <td>20</td>
         </tr>
         <tr>
             <td>Июнь</td>
@@ -61,7 +61,12 @@
         <tr>
             <td>Июль</td>
             <td>125</td>
-            <td>100</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Итого</td>
+            <td id="sum1"></td>
+            <td id="sum2"></td>
         </tr>
     </table>
 
@@ -75,6 +80,32 @@
         В div с id result выведите сообщение "Отдел 1 сделал больше продаж" или "Отдел 2 сделал больше продаж" на основе раннее вычисленных значений в строке "Итого".
         Используйте любые методы, которые были рассмотрены на в прошлых уроках.
         */
+
+        let table = document.querySelector("#statsTable");
+        let result = document.querySelector("#result");
+
+        let sum1 = 0;
+        let sum2 = 0;
+
+        for (const row of table.rows) {
+            if (Number(row.cells[1].textContent)) {
+                console.log(Number(row.cells[1].textContent));
+                sum1 += Number(row.cells[1].textContent);
+                sum2 += Number(row.cells[2].textContent);
+            } else {
+                continue;
+            }
+        }
+
+        document.querySelector("#sum1").textContent = sum1;
+        document.querySelector("#sum2").textContent = sum2;
+
+        let group1 = document.querySelector("#group1").textContent;
+        let group2 = document.querySelector("#group2").textContent;
+
+        result.textContent = ((sum1 > sum2)?group1:group2) + " сделал больше продаж";
+
+
     </script>
 </body>
 </html>
