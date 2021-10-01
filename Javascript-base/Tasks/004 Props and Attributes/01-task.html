@@ -9,13 +9,17 @@
 <body>
     <div data-color="red">Div 1</div>
     <div data-color="green">Div 2</div>
-    <div data-color="blue">Div 3</div>
+    <div data-color="cyan">Div 3</div>
 
     <script>
         /*
         Задание:
         Напишите сценарий, который поменяет цвет текста элементов div, на тот, который указан в качестве значения атрибута data-color
         */
+        let divs = document.querySelectorAll("div");
+        for (const div of divs) {
+            div.style.color = div.dataset.color;
+        }
     </script>
 </body>
 </html>

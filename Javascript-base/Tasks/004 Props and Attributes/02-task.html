@@ -23,6 +23,22 @@
         Задание:
         Посчитайте сумму значений атрибутов data-value и my-attribute всех элементов на текущей странице и отобразите ее пользователю.
         */
+
+        let attr = document.querySelectorAll("[data-value]");
+        let sumDataValue = 0;
+        for (const at of attr) {
+            sumDataValue += +at.dataset.value;
+        }
+        console.log("Сумма data-value: " + sumDataValue);
+
+        let myAttr = document.querySelectorAll("[my-attribute]");
+        let sumMyAttribute = 0;
+
+        for (const attr of myAttr) {
+            sumMyAttribute += +attr.getAttribute("my-attribute");
+        }
+        
+        console.log("Сумма myAttribute: " + sumMyAttribute);
     </script>
 </body>
 

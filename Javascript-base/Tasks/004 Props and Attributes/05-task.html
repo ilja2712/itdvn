@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <div data-bind="firstName"></div>
     <div data-bind="lastName"></div>
+    <div data-bind="firstName"></div>
     <div data-bind="age"></div>
 
     <script>
@@ -28,6 +28,20 @@
             lastName: "Doe",
             age: "25",
         }
+
+        let div = document.querySelectorAll("[data-bind]");
+        for (const el of div) {
+            getUserInfo(el);
+        }
+
+        function getUserInfo(objDiv) {
+            for (const el in user) {
+                console.log(objDiv.getAttribute("data-bind"));
+                if (objDiv.getAttribute("data-bind") == el) {
+                    objDiv.textContent = user[el];
+                }
+            }
+        };
 
     </script>
 </body>
