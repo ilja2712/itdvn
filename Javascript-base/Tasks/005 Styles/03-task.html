@@ -36,6 +36,21 @@
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let busyDays = ["Monday", "Thursday", "Friday"];
 
+        function createDivDays() {
+            for (const day of days) {
+                let divDays = document.createElement("div");
+                divDays.textContent = day;
+                document.body.prepend(divDays);
+                for (const busyDay of  busyDays) {
+                    if(busyDay == divDays.textContent) {
+                        divDays.classList.add("busy-day");
+                    }
+                }
+            }
+        }
+
+        createDivDays();
+
     </script>
 </body>
 
