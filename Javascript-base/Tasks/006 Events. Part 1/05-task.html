@@ -98,8 +98,12 @@
             let p = document.createElement("p");
             p.innerText = text;
 
+            let deleteBtn = document.createElement("button");
+            createDeleteButton(deleteBtn);
+
             div.append(input);
             div.append(p);
+            div.append(deleteBtn);
 
             return div;
         }
@@ -122,6 +126,18 @@
             } else { 
                 alert("введите имя задачи");
             }
+        }
+
+        function createDeleteButton(deleteBtn) {
+            deleteBtn.textContent = "Удалить";
+            deleteBtn.classList.add("deleteTask");
+            deleteBtn.style.color = "red";
+            deleteBtn.style.border = "2px solid red";
+            deleteBtn.style.marginLeft = "auto";
+
+            deleteBtn.addEventListener("click", function() {
+                deleteBtn.parentElement.remove();
+            });
         }
     </script>
 </body>
