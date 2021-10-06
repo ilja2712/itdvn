@@ -9,24 +9,36 @@
 </head>
 
 <body>
-    <button>Кнопка 1</button>
-    <button>Кнопка 2</button>
-    <button>Кнопка 3</button>
-
+    <div id="menuBtn">
+        <button data-action="btn1">Кнопка 1</button>
+        <button data-action="btn2">Кнопка 2</button>
+        <button data-action="btn3">Кнопка 3</button>
+    </div>
     <script>
         /*
         Задание:
         Перепишите сценарий таким образом, чтобы в коде устанавливался один обработчик для всех трех кнопок, при этом 
         результат работы сценария не должен измениться.
         */
-        let buttons = document.querySelectorAll("button");
-        buttons.forEach(btn => {
-            btn.addEventListener("click", clickHandler);
-        });
 
-        function clickHandler() {
-            alert(this.innerText);
-        }
+        let buttonManager = {
+            btn1() {
+                alert("Кнопка 1");
+            },
+            btn2() {
+                alert("Кнопка 2");
+            },
+            btn3() {
+                alert("Кнопка 3");
+            }
+        };
+
+        document.querySelector("#menuBtn").addEventListener("click", function (e) {
+            const action = e.target.dataset.action
+            if (action) {
+                buttonManager[action]();
+            }
+        });
     </script>
 </body>
 

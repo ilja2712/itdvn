@@ -153,7 +153,7 @@
             }
         ];
 
-        let uslerList = document.querySelector("#userList");
+        let userList = document.querySelector("#userList");
 
         for (let index = 0; index < users.length; index++) {
             const currentUser = users[index];
@@ -161,7 +161,19 @@
             li.textContent = currentUser.name.first + " " + currentUser.name.last;
             li.addEventListener("mouseenter", mouseEnterHandler);
             li.dataset.userNumber = index;
-            uslerList.append(li);
+            userList.append(li);
+        }
+
+        function mouseEnterHandler(e) {
+            for (const user of users) {
+                if ((user.name.first + " " + user.name.last) == e.explicitOriginalTarget.data) {
+                    let divOutput = document.querySelector("#output");
+                    divOutput.innerHTML = "<p>Возраст: " + user.age + "</p>" 
+                    + "<p>Баланс: " + user.balance + "</p>" 
+                    + "<p>Компания: " + user.company + "</p>" 
+                    + "<p>Email: " + user.email + "</p>";
+                }
+            }
         }
     </script>
 </body>

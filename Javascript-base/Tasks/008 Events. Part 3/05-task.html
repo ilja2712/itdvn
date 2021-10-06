@@ -56,6 +56,43 @@
         */
 
         // Создает и возвращает div с классом interactiveElement со случайной позицией в текущем окне
+
+        let interPanel = document.querySelector("#interactivePanel");
+        let move = false;
+        let offsetX, offsetY;
+        let currentElement;
+
+        let generateButton = document.querySelector("#generateButton");
+        generateButton.addEventListener("click", function() {
+            let div = interPanel.querySelectorAll(".interactiveElement");
+            if (div) {
+                delete div;
+            }
+            for (let i = 0; i < 100; i++) {
+                interPanel.append(generateElement());
+            }
+        });
+
+        interPanel.addEventListener("mousedown", function(e) {
+                    move = true;
+                    offsetX = e.offsetX;
+                    offsetY = e.offsetY;
+                    currentElement = e.target;
+        });
+
+        document.addEventListener("mousemove", function(e) {
+            if (move) {
+                currentElement.style.top = e.clientY - offsetY + "px";
+                currentElement.style.left = e.clientX - offsetX + "px";
+            }
+        });
+
+        document.addEventListener("mouseup", function(e) {
+            move = false;
+        });
+
+
+
         function generateElement() {
             let div = document.createElement("div");
             div.classList.add("interactiveElement");
