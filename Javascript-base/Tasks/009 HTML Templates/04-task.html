@@ -23,10 +23,18 @@
 </head>
 
 <body>
-    <table>
+    <table id="dataMonth">
 
     </table>
 
+    <template id="template">
+        <tr>
+            <td>{{month}}</td>
+            <td>{{amount}}</td>
+        </tr>
+    </template>
+
+    <script src="mustache.min.js"></script>
     <script>
         /*
         Задание:
@@ -66,6 +74,12 @@
             }
         ];
         
+        let template = document.querySelector("#template").innerHTML;
+        for (let i = 0; i < source.length; i++) {
+            let rendered = Mustache.render(template, source[i]);
+            document.querySelector("#dataMonth").innerHTML += rendered;
+        }
+
     </script>
 </body>
 
