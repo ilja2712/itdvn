@@ -15,23 +15,17 @@
         Выполните рефакторинг кода. Сделайте так, чтобы объекты создавались не через литералы, а через функцию конструктор.
         */
 
-        let user1 = {
-            firstName: "Ivan",
-            lastName: "Ivanov",
+        function CreateUser(firstName, lastName) {
+            this.firstName = firstName,
+            this.lastName = lastName,
             
-            show: function () {
+            this.show = function () {
                 console.log(this.firstName + " " + this.lastName);
             }
         }
 
-        let user2 = {
-            firstName: "Olga",
-            lastName: "Petrova",
-            
-            show: function () {
-                console.log(this.firstName + " " + this.lastName);
-            }
-        }
+        let user1 = new CreateUser("Victor", "Pavlik");
+        let user2 = new CreateUser("Olga", "Fartuk");
 
         user1.show();
         user2.show();
