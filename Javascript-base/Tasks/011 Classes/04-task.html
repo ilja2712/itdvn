@@ -46,20 +46,20 @@
         }
 
         .input-panel {
-            width: 500px;
+            width: 800px;
             margin: 8px;
             padding: 2px;
         }
 
         .input-panel button {
             padding: 4px;
-            width: 25%;
+            width: 15%;
         }
 
         .input-panel input {
             height: 23px;
             padding-left: 4px;
-            width: 68%;
+            width: 40%;
         }
     </style>
 </head>
@@ -68,6 +68,8 @@
     <div class="input-panel">
         <input type="text" id="task-name-input">
         <button id="add-task-btn">Добавить задачу</button>
+        <button id="get-not-close-task">Показать не завершенные задачи</button>
+        <button id="get-all-task">Показать все задачи</button>
     </div>
     <div class="task-list">
         <p id="start-message">Нет новых задач</p>
@@ -88,6 +90,8 @@
         let taskNameInput = document.querySelector("#task-name-input");
         let addTaskButton = document.querySelector("#add-task-btn");
         let startMessage = document.querySelector("#start-message");
+        let getAllTask = document.querySelector("#get-all-task");
+        let getNotCloseTask = document.querySelector("#get-not-close-task");
         let taskList = document.querySelector(".task-list");
         let tasks = [];
 
@@ -96,6 +100,22 @@
         taskNameInput.addEventListener("keydown", function (e) {
             if (e.code == "Enter") addTaskHandler();
         })
+
+        getNotCloseTask.addEventListener("click", function (e) {
+            taskList.innerHTML = "";
+            for (const task of tasks) {
+                if (task.isDone === false) {
+                    task.createIn(taskList);
+                }
+            }
+        });
+
+        getAllTask.addEventListener("click", function (e) {
+            taskList.innerHTML = "";
+            for (const task of tasks) {
+                task.createIn(taskList);
+            }
+        });
 
         function addTaskHandler() {
             if (taskNameInput.value) {
@@ -131,6 +151,11 @@
 
                 this.div.append(input);
                 this.div.append(p);
+
+                if (this.isDone) {
+                    this.div.classList.add("completed");
+                    input.checked = true;
+                }
                 element.append(this.div);
             }
 
