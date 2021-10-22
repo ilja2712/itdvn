@@ -52,6 +52,7 @@
         let element = document.querySelector("#element");
         let elementWidth = parseInt(getComputedStyle(element).width);
         let containerWidth = parseInt(getComputedStyle(document.querySelector("#container")).width);
+        let timerId;
 
         let direction = "right";
 
@@ -83,8 +84,21 @@
             }
         }
 
+        function stop() {
+
+        }
+
         document.querySelector("#startBtn").addEventListener("click", function () {
-            setInterval(move, 40);
+            if (!timerId) {
+                setInterval(move, 40);
+            }
+        });
+
+        document.querySelector("#stopBtn").addEventListener("click", function () {
+            if (timerId) {
+                clearInterval(timerId);
+                timerId = null;
+            }
         });
     </script>
 </body>
