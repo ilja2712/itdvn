@@ -53,15 +53,16 @@
         let elementWidth = parseInt(getComputedStyle(element).width);
         let containerWidth = parseInt(getComputedStyle(document.querySelector("#container")).width);
         let timerId;
+        let interval = 3;
 
         let direction = "right";
 
         function moveLeft() {
-            element.style.left = getLeft(element) - 3 + "px";
+            element.style.left = getLeft(element) - interval + "px";
         }
 
         function moveRight() {
-            element.style.left = getLeft(element) + 3 + "px";
+            element.style.left = getLeft(element) + interval + "px";
         }
 
         function getLeft(e) {
@@ -84,14 +85,18 @@
             }
         }
 
-        function stop() {
-
-        }
-
         document.querySelector("#startBtn").addEventListener("click", function () {
             if (!timerId) {
-                setInterval(move, 40);
+                timerId = setInterval(move, interval);
             }
+        });
+
+        document.querySelector("#increaseBtn").addEventListener("click", function () {
+            interval++;
+        });
+
+        document.querySelector("#decreaseBtn").addEventListener("click", function () {
+            interval--;
         });
 
         document.querySelector("#stopBtn").addEventListener("click", function () {
