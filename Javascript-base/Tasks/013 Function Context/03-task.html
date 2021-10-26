@@ -26,16 +26,12 @@
 
             // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
             getGreaterThanThreshold() {
-                return this.#values.filter(function (v) {
-                    return v > this.#threshold;
-                })
+                return this.#values.filter((e) => e > this.#threshold);
             }
 
             // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
             getLessThanThreshold() {
-                return this.#values.filter(function (v) {
-                    return v < this.#threshold;
-                })
+                return this.#values.filter((e) => e < this.#threshold);
             }
         }
 

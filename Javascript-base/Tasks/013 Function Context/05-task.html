@@ -31,6 +31,46 @@
         Пользователь: 56
         Сценарий: Правильно! Загаданное значение 56. Вы угадали с 4й попытки за 10 сек.
         */
+
+        let randomValue = Math.floor(Math.random() * 101);
+        let timerId;
+        let countAttempts = 0;
+        let userValue, timeGame;
+
+        function getResult(userValue) {
+            if (randomValue < userValue) return "меньше";
+            if (randomValue > userValue) return "больше";
+            if (randomValue == userValue) return "равно"; 
+        }
+
+        function setNewValue(answer) {
+            userValue = prompt("я загадал значение " + this.answer + ", чем" + userValue, 0);
+            countAttempts++;
+            validationValue(userValue);
+        }
+
+        function validationValue(userValue) {
+            switch(getResult(userValue)) {
+                case "больше":
+                    setNewValue(getResult(userValue));
+                    
+                case "меньше":
+                    setNewValue(getResult(userValue));
+
+                case "равно":
+                alert("Правильно! Загаданное значение" + randomValue + ". Вы угадали с " + countAttempts + "й попытки за " + timeGame + " сек.")
+                clearInterval(timerId);
+                timerId = null;
+                break;
+            }
+        }
+
+        if (!userValue) {
+            userValue = prompt("я загадал случайное значение от 0 до 100", 0);
+            timerId = setInterval(() => timerGame++, 1000);
+            validationValue(userValue);
+        }
+
     </script>
 </body>
 
