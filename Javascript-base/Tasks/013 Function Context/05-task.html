@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div>Игра</div>
     <script>
         /*
         Задание:
@@ -33,43 +34,49 @@
         */
 
         let randomValue = Math.floor(Math.random() * 101);
+        let countAttempts = 1;
         let timerId;
-        let countAttempts = 0;
-        let userValue, timeGame;
+        let userValue, timeGame = 0;
 
         function getResult(userValue) {
-            if (randomValue < userValue) return "меньше";
-            if (randomValue > userValue) return "больше";
-            if (randomValue == userValue) return "равно"; 
+            if (randomValue < userValue) return 'меньше';
+            if (randomValue > userValue) return 'больше';
+            if (randomValue == userValue) return 'равно';
         }
 
         function setNewValue(answer) {
-            userValue = prompt("я загадал значение " + this.answer + ", чем" + userValue, 0);
+            userValue = prompt("я загадал значение " + answer + ", чем " + userValue, 0);
             countAttempts++;
             validationValue(userValue);
         }
 
         function validationValue(userValue) {
-            switch(getResult(userValue)) {
-                case "больше":
-                    setNewValue(getResult(userValue));
-                    
-                case "меньше":
-                    setNewValue(getResult(userValue));
-
-                case "равно":
-                alert("Правильно! Загаданное значение" + randomValue + ". Вы угадали с " + countAttempts + "й попытки за " + timeGame + " сек.")
-                clearInterval(timerId);
-                timerId = null;
-                break;
+            let answer = getResult(userValue);
+            switch(answer) {
+                case 'больше':
+                    setNewValue(answer);
+                    break;
+                case 'меньше':
+                    setNewValue(answer);
+                    break;
+                case 'равно':
+                    clearInterval(timerId);
+                    alert("Правильно! Загаданное значение " + randomValue + ". Вы угадали с " + countAttempts + "-й попытки за " + timeGame + " сек.");
+                    break;
             }
         }
 
-        if (!userValue) {
-            userValue = prompt("я загадал случайное значение от 0 до 100", 0);
-            timerId = setInterval(() => timerGame++, 1000);
-            validationValue(userValue);
+        function gameUser() {
+            if (!userValue) {
+                userValue = prompt("я загадал случайное значение от 0 до 100", 0);
+                validationValue(userValue);
+            }
         }
+
+        let element = document.querySelector('div');
+        element.textContent = "Game";
+        timerId = setInterval(() => timeGame++, 1000);
+        gameUser()
 
     </script>
 </body>
