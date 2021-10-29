@@ -21,27 +21,29 @@
         ключевое солово class
         */
 
-        class Numbers {
-            #values;
-            #threshold;
+        let numbers = (function () {
+            let values, threshold;
 
-            constructor(threshold, values) {
-                this.#values = values;
-                this.#threshold = threshold;
+            return {
+                
+                setValues: function (x, y) {
+                    values = y;
+                    threshold = x;
+                },
+
+                // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
+                getGreaterThanThreshold: function () {
+                    return values.filter(v => v > threshold);
+                },
+
+                // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
+                getLessThanThreshold: function () {
+                    return values.filter(v => v < threshold);
+                }
             }
+        }());
 
-            // Возвращает все значения из массива values, которые больше, чем значение переменной threshold
-            getGreaterThanThreshold() {
-                return this.#values.filter(v => v > this.#threshold);
-            }
-
-            // возвращает все значения из массива values, которые меньше, чем значение переменной threshold 
-            getLessThanThreshold() {
-                return this.#values.filter(v => v < this.#threshold);
-            }
-        }
-
-        let numbers = new Numbers(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
+        numbers.setValues(50, [10, 20, 23, 11, 5, 6, 90, 33, 45, 67]);
         let gt = numbers.getGreaterThanThreshold();
         let lt = numbers.getLessThanThreshold();
 
