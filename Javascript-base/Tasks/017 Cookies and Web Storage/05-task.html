@@ -169,11 +169,17 @@
                 input.addEventListener("click", this.changeState.bind(this));
                 input.type = "checkbox";
 
+                let buttonDel = document.createElement("button");
+                buttonDel.addEventListener("click", this.deleteTask.bind(this));
+                buttonDel.textContent = "X";
+                buttonDel.style.marginLeft = "auto";
+
                 let p = document.createElement("p");
                 p.innerText = this.task.text;
 
                 this.div.append(input);
                 this.div.append(p);
+                this.div.append(buttonDel);
 
                 if (this.task.isDone) {
                     this.div.classList.add("completed");
@@ -186,6 +192,18 @@
                 this.task.isDone = !this.task.isDone;
                 dataService.save();
                 this.div.classList.toggle("completed");
+            }
+
+            deleteTask(element) {
+                this.div.remove();
+                let tasks = dataService.allTasks;
+                console.log(tasks);
+                tasks.forEach((task, index) => {
+                    if (task.text == this.task.text) {
+                        tasks.splice(index, 1);
+                    }
+                });
+                dataService.save();
             }
         }
 
