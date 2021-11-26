@@ -16,6 +16,7 @@
         */
 
         function sum(a, b) {
+            if (!a || !b) throw new Error("Ошибка, отсутствует один из параметров!");
             return a + b;
         }
 
